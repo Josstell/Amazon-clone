@@ -20,10 +20,12 @@ const Header = () => {
         <SearchIcon className={styles.header__searchIcon} />
       </div>
       <div className={styles.header_nav}>
-        <div className={styles.header_option}>
-          <span className={styles.header_optionLineOne}>Hello Guest</span>
-          <span className={styles.header_optionLineTwo}>Sign In</span>
-        </div>
+        <Link href="/login">
+          <div className={styles.header_option}>
+            <span className={styles.header_optionLineOne}>Hello Guest</span>
+            <span className={styles.header_optionLineTwo}>Sign In</span>
+          </div>
+        </Link>
         <div className={styles.header_option}>
           <span className={styles.header_optionLineOne}>Return</span>
           <span className={styles.header_optionLineTwo}>& Orders</span>

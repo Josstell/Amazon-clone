@@ -1,6 +1,7 @@
 import Head from "next/head";
 import HomePage from "@components/Home";
-import styles from "../styles/Home.module.css";
+
+import Layout from "../src/Layout";
 
 export default function Home() {
   return (
@@ -9,8 +10,10 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <HomePage />
+      <Layout>
+        <HomePage />
+      </Layout>
+      ;
     </div>
   );
 }
