@@ -1,4 +1,6 @@
 import React from "react";
+import { useRouter } from "next/router";
+
 import CurrencyFormat from "react-currency-format";
 
 import { useStateValue } from "src/context/StateProvider";
@@ -6,6 +8,7 @@ import { getBasketTotal } from "../../reducer/reducer";
 import styles from "./subtotal.module.css";
 
 const Subtotal = () => {
+  const router = useRouter();
   const [{ basket }] = useStateValue();
 
   return (
@@ -28,7 +31,13 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button className={styles.subtotal_button}>Proceed to Checkout</button>
+
+      <button
+        onClick={() => router.push("/payment")}
+        className={styles.subtotal_button}
+      >
+        Proceed to Checkout
+      </button>
     </div>
   );
 };

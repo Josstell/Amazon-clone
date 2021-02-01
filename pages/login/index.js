@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { auth } from "../../src/firebase/firebase";
 import styles from "./login.module.css";
-import reducer from "src/reducer/reducer";
-import { returnTrue } from "react-currency-format/lib/utils";
 
 const Login = () => {
   const [email, setEmail] = useState("");
