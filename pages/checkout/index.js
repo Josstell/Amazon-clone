@@ -8,7 +8,7 @@ import Layout from "../../src/Layout";
 import styles from "./checkout.module.css";
 
 const Checkout = () => {
-  const [{ basket }] = useStateValue();
+  const [{ basket, user }] = useStateValue();
 
   return (
     <Layout>
@@ -21,6 +21,7 @@ const Checkout = () => {
           />
 
           <div>
+            <h3>Hello, {user?.email}</h3>
             <h2 className={styles.checkout_title}> Your Shoping basket</h2>
           </div>
 

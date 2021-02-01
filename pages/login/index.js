@@ -1,17 +1,39 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { auth } from "../../src/firebase/firebase";
 import styles from "./login.module.css";
+import reducer from "src/reducer/reducer";
+import { returnTrue } from "react-currency-format/lib/utils";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const signin = (e) => {
     e.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          router.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   };
 
   const register = (e) => {
     e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth);
+        if (auth) {
+          router.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   };
 
   return (

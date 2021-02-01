@@ -1,7 +1,6 @@
-import "../styles/globals.css";
-
 import { StateProvider } from "../src/context/StateProvider";
 import reducer, { initialState } from "../src/reducer/reducer";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
