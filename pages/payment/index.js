@@ -6,6 +6,7 @@ import Layout from "src/Layout";
 import CheckoutProduct from "@components/CheckoutPruduct";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "../../src/reducer/reducer";
+import { db } from "../../src/firebase/firebase";
 import CurrencyFormat from "react-currency-format";
 import styles from "./payment.module.css";
 
@@ -56,12 +57,22 @@ const Payment = () => {
       .then(({ paymentIntent }) => {
         //paymentIntent = payment confirmation
 
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-
-        // router.replace("/orders");
-      });
+        router.replace("/orders");
+      })
+      .catch((error) => console.log(error));
 
     //const payload = await stripe
   };

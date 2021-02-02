@@ -4,6 +4,7 @@ const stripe = require("stripe")(
 
 export default async (req, res) => {
   const total = req.query.total;
+
   if (req.method === "POST") {
     console.log("Payment Request received BOOM!!!", total);
     const paymentIntent = await stripe.paymentIntents.create({
