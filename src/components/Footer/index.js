@@ -3,17 +3,14 @@ import React from "react";
 const Footer = () => {
   return (
     <footer>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Powered by <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+      <a href="https://2f.com.mx" target="_blank" rel="noopener noreferrer">
+        Powered by <img src="/2f.png" alt="2f Logo" className="logo" />
       </a>
       <style jsx>{`
         footer img {
-          margin-left: 0.5rem;
+          margin-left: 0.1rem;
         }
+
         .logo {
           height: 1em;
         }
